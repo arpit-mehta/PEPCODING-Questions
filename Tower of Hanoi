@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        // write your code here
+        Scanner scn= new Scanner(System.in);
+        int n= scn.nextInt();
+        int src= scn.nextInt();
+        int dest= scn.nextInt();
+        int aux= scn.nextInt();
+        toh(n,src,dest,aux);
+    }
+
+    public static void toh(int n, int src, int dest, int aux){
+        if(n==0){
+            return;
+        }
+        toh(n-1,src,aux,dest);  
+        //move n-1 disks from src to aux
+
+        System.out.println(n+"["+src+" -> "+dest+"]");
+        //move nth disk from src to dest
+
+        toh(n-1,aux,dest,src);
+        //move n-1 disks from aux to dest
+    }
+
+}
